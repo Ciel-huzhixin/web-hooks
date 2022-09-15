@@ -13,19 +13,19 @@ app.get('/backed', (req, res) => {
 })
 
 app.post('/backed', (req, res) => {
-  console.log(req.headers);
+  console.log('/backed', req.headers);
   const backed = spawn('sh', ['./backed.sh']);
   backed.stdout.on('data', data => {
-    console.log('backed output ' + data);
+    console.log('backed output >>>>>  ' + data);
   })
   res.send({ success: true });
 })
 
 app.post('/front', (req, res) => {
-  console.log(req.headers);
+  console.log('/front', req.headers);
   const front = spawn('sh', ['./front.sh']);
   front.stdout.on('data', data => {
-    console.log('front output ' + data);
+    console.log('front output >>>>>>   ' + data);
   })
   res.send({ success: true });
 })
